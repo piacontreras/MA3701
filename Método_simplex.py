@@ -10,7 +10,7 @@ random.seed(19840187)
 #definimos n el cual es el numero de salas de cirujia 
 n=2
 
-#definimos m como el número de pacientes
+#definimos m como el nÃºmero de pacientes
 m=4
 
 #definimos T, en el cual solo pueden haber m operaciones
@@ -34,7 +34,7 @@ for i in range (0,m):
         c[contador]=t_ij[i,j]
         contador=contador+1
 
-#difiniendo los subs-vectores/matrices de A y b según indica el enunciado
+#difiniendo los subs-vectores/matrices de A y b segÃºn indica el enunciado
 #Definiendo los subs b
 #b1 es un vector de dimensiones mx1 de unos
 b1=np.ones((m,1))
@@ -62,7 +62,7 @@ for i in range (0,m):
 #A2 es una matriz compuesta de submatrices donde en su diagonal tiene t_ij
 #las submatrices son de nxn
 #A2 tiene dimensiones de nx(m*n)
-#definí A2 componente a componente
+#definÃ­ A2 componente a componente
 #para un (m=4 y n=2) y (m=5 y n=3)
 A2=np.zeros((n,m*n))
 for i in range (0,n): 
@@ -103,7 +103,7 @@ if m==5 and n==3:
                 A2[2,14]=c[14]
             
 
-#concatenamos las submatrices para obtener la matriz más grande
+#concatenamos las submatrices para obtener la matriz mÃ¡s grande
 #tanto para A como para b
 A=np.concatenate((A1,A2))
 
@@ -111,8 +111,8 @@ b=np.concatenate((b1,b2))
 
 
 
-#aplicamos la función linprog utilizando -c ya que estamos minimizando
-#hacemos que x esté entre (0,1)
+#aplicamos la funciÃ³n linprog utilizando -c ya que estamos minimizando
+#hacemos que x estÃ© entre (0,1)
 x=linprog(-c,A,b,bounds=(0,1),method='simplex')
 print x
 
