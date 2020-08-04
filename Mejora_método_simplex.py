@@ -10,7 +10,7 @@ random.seed(19840187)
 #definimos n el cual es el numero de salas de cirujia 
 n=2
 
-#definimos m como el número de pacientes
+#definimos m como el nÃºmero de pacientes
 m=4
 
 #definimos T, en el cual solo pueden haber m operaciones
@@ -33,7 +33,7 @@ for i in range (0,m):
         c[contador]=t_ij[i,j]
         contador=contador+1
 
-#difiniendo los subs-vectores/matrices de A y b según indica el enunciado
+#difiniendo los subs-vectores/matrices de A y b segÃºn indica el enunciado
 #Definiendo los subs b
 #b1 es un vector de dimensiones mx1 de unos
 b1=np.ones(m)
@@ -59,7 +59,7 @@ for i in range (0,m):
 #A2 es una matriz compuesta de submatrices donde en su diagonal tiene t_ij
 #las submatrices son de nxn
 #A2 tiene dimensiones de nx(m*n)
-#en este caso, no supe hacerlo de otra manera y definí A2 componente a componente
+#en este caso, no supe hacerlo de otra manera y definÃ­ A2 componente a componente
 #para un m=4 y n=2
 A2=np.zeros((n,m*n))
 for i in range (0,n): 
@@ -99,7 +99,7 @@ if m==5 and n==3:
                 A2[2,11]=c[11]
                 A2[2,14]=c[14]
            
-#concatenamos las submatrices para obtener la matriz más grande
+#concatenamos las submatrices para obtener la matriz mÃ¡s grande
 #tanto para A como para b
 A=np.concatenate((A1,A2))
 b=np.concatenate((b1,b2))
@@ -108,8 +108,8 @@ b=np.concatenate((b1,b2))
 b3=np.transpose(b)
 A3=np.transpose(A)
 
-#aplicamos la función linprog utilizando -A3 y -c pues las desigualdades estan
-#hacia el otro lado, además y sólo esta acotado por debajo por 0
+#aplicamos la funciÃ³n linprog utilizando -A3 y -c pues las desigualdades estan
+#hacia el otro lado, ademÃ¡s y sÃ³lo esta acotado por debajo por 0
 y=linprog(b,-A3,-c,bounds =(0,None),method='simplex')
 print y
 
